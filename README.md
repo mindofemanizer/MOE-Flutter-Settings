@@ -9,7 +9,7 @@ dependencies:
   moe_flutter_settings:
     git:
       url: https://github.com/mindofemanizer/MOE-Flutter-Settings.git
-      ref: main
+      ref: master
 ```
 
 ## Usage

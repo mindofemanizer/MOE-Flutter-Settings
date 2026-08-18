@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:moe_flutter_core/moe_flutter_core.dart';
@@ -46,10 +45,12 @@ class SettingsRepository {
       }
       return Err(mapDioErrorToFailure(e));
     } catch (e) {
-      return Err(AppFailure(
-        type: FailureType.unknown,
-        message: e.toString(),
-      ));
+      return Err(
+        AppFailure(
+          type: FailureType.unknown,
+          message: e.toString(),
+        ),
+      );
     }
   }
 
@@ -67,21 +68,23 @@ class SettingsRepository {
 
       final cached = _readFromCache(key);
       return Ok(SettingValue(key: key, value: cached));
-    } on DioException catch (e) {
+    } on DioException {
       final cached = _readFromCache(key);
       return Ok(SettingValue(key: key, value: cached));
     } catch (e) {
-      return Err(AppFailure(
-        type: FailureType.unknown,
-        message: e.toString(),
-      ));
+      return Err(
+        AppFailure(
+          type: FailureType.unknown,
+          message: e.toString(),
+        ),
+      );
     }
   }
 
   /// Update setting on remote.
   Future<AppResult<SettingValue>> update(String key, dynamic value) async {
     try {
-      final response = await _dio.put(
+      await _dio.put(
         _config.settingsEndpoint,
         data: {'key': key, 'value': value},
       );
@@ -91,10 +94,12 @@ class SettingsRepository {
     } on DioException catch (e) {
       return Err(mapDioErrorToFailure(e));
     } catch (e) {
-      return Err(AppFailure(
-        type: FailureType.unknown,
-        message: e.toString(),
-      ));
+      return Err(
+        AppFailure(
+          type: FailureType.unknown,
+          message: e.toString(),
+        ),
+      );
     }
   }
 
@@ -107,10 +112,12 @@ class SettingsRepository {
     } on DioException catch (e) {
       return Err(mapDioErrorToFailure(e));
     } catch (e) {
-      return Err(AppFailure(
-        type: FailureType.unknown,
-        message: e.toString(),
-      ));
+      return Err(
+        AppFailure(
+          type: FailureType.unknown,
+          message: e.toString(),
+        ),
+      );
     }
   }
 

@@ -1,7 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:moe_flutter_core/moe_flutter_core.dart';
-
 /// Configuration for MOE Settings package.
 class MoeSettingsConfig {
   final String settingsEndpoint;
