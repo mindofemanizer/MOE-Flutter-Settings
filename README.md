@@ -1,6 +1,6 @@
 # MOE-Flutter-Settings
 
-Settings package for MOE Flutter ecosystem — global key-value settings, cached, typed.
+Settings package for MOE Flutter ecosystem â€” global key-value settings, cached, typed.
 
 ## Installation
 
@@ -9,7 +9,7 @@ dependencies:
   moe_flutter_settings:
     git:
       url: https://github.com/mindofemanizer/MOE-Flutter-Settings.git
-      ref: master
+      ref: v1.0.0
 ```
 
 ## Usage
